@@ -21,12 +21,12 @@ def appointments(state: str, city: str):
     base_coords = get_coords_from_csv([city], state)
 
     cities = [appt.get("city") for appt in available_appts_for_state]
-    available_appt_coords = get_coords_from_csv(cities, state)
+    available_appt_coords = cvs.get_coords_from_csv(cities, state)
 
     appt_data = []
     for appt in available_appts_for_state:
         try:
-            appt["distance"] = get_distance_between_two_coords(base_coords["AUSTIN, TX"], coords[f"{appt['city']}, {appt['state']}"])
+            appt["distance"] = cvs.get_distance_between_two_coords(base_coords["AUSTIN, TX"], coords[f"{appt['city']}, {appt['state']}"])
         except KeyError:
             continue
         appt_data.append(appt)
