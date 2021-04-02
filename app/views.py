@@ -26,7 +26,7 @@ def appointments(state: str, city: str):
     appt_data = []
     for appt in available_appts_for_state:
         try:
-            appt["distance"] = cvs.get_distance_between_two_coords(base_coords["AUSTIN, TX"], coords[f"{appt['city']}, {appt['state']}"])
+            appt["distance"] = cvs.get_distance_between_two_coords(base_coords["AUSTIN, TX"], available_appt_coords[f"{appt['city']}, {appt['state']}"])
         except KeyError:
             continue
         appt_data.append(appt)
