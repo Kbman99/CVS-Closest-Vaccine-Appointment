@@ -18,7 +18,7 @@ def appointments(state: str, city: str):
     city = city.upper()
 
     available_appts_for_state = cvs.get_availabilities_for_state(state)
-    base_coords = get_coords_from_csv([city], state)
+    base_coords = cvs.get_coords_from_csv([city], state)
 
     cities = [appt.get("city") for appt in available_appts_for_state]
     available_appt_coords = cvs.get_coords_from_csv(cities, state)
