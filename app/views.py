@@ -12,7 +12,7 @@ def hello():
 def ping():
     return jsonify("pong")
 
-@app.route('/appointments/<state_code>/<city>', methods=['GET'])
+@app.route('/appointments/<state>/<city>', methods=['GET'])
 def appointments(state: str, city: str):
     state = state.upper()
     city = city.upper()
